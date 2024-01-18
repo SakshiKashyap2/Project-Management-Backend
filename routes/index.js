@@ -5,6 +5,10 @@ import Project from '../models/index.js'
 
 const api = express.Router()
 
+api.get('/', (req, res)=>{
+    res.send('Server Running!');
+})
+
 api.get('/projects', async (req, res) => {
     try {
         const data = await Project.find({}, { task: 0, __v: 0, updatedAt: 0 })
